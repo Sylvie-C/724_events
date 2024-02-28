@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useData } from "../../contexts/DataContext";
-import { getMonth } from "../../helpers/Date";
+import { getMonthData } from "../../helpers/Date";
 
 import "./style.scss";
 
@@ -12,12 +12,13 @@ const Slider = () => {
   );
   const nextCard = () => {
     setTimeout(
-      () => setIndex(index < byDateDesc.length ? index + 1 : 0),
+      () => setIndex(index < byDateDesc.length-1 ? index + 1 : 0),
       5000
     );
   };
   useEffect(() => {
     nextCard();
+    // setIndex(0)
   });
   return (
     <div className="SlideCardList">
@@ -34,7 +35,7 @@ const Slider = () => {
               <div className="SlideCard__description">
                 <h3>{event.title}</h3>
                 <p>{event.description}</p>
-                <div>{getMonth(new Date(event.date))}</div>
+                <div>{getMonthData(new Date(event.date))}</div>
               </div>
             </div>
           </div>

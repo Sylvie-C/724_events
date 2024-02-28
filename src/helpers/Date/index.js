@@ -1,16 +1,13 @@
-export const MONTHS = {
-  1: "janvier",
-  2: "février",
-  3: "mars",
-  4: "avril",
-  5: "mai",
-  6: "juin",
-  7: "juillet",
-  8: "août",
-  9: "septembre",
-  10: "octobre",
-  11: "novembre",
-  12: "décembre",
-};
+export const MONTHS = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre",
+"octobre","novembre","décembre"];
 
-export const getMonth = (date) => MONTHS[date.getMonth()];
+// export const getMonth = (date) => MONTHS[date.getMonth()];
+export const getMonthData = (date) => { 
+  /*
+    Function to convert a JS Date type variable into the corresponding month.  
+    Parameters : 1 -> date (Date type JS object)
+    Return : corresponding month (string type).
+  */
+  const data = date.getMonth() // method Date.getMonth() 
+  return MONTHS[data] ; 
+} 
