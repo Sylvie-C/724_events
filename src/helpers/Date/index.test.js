@@ -3,12 +3,13 @@
  * @returns {string} 
  */
 
-import { getMonthData } from './index'; 
+import { getMonthString } from './index'; 
 
-describe('getMonthData', () => {
+// getMonthString function test
+describe('getMonthString', () => {
   it('the function return janvier for 2022-01-01 as date', () => {
     const date = new Date(2022, 0, 1); // January = 0
-    const result = getMonthData(date);
+    const result = getMonthString(date);
 
     // Check result
     expect(result).toBe("janvier"); // 'janvier' in MONTHS

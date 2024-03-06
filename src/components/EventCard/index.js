@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { getMonthData } from "../../helpers/Date";
+import { getMonthString } from "../../helpers/Date";
 
 import "./style.scss";
 
@@ -23,7 +23,7 @@ const EventCard = ({
       </div>
       <div className="EventCard__descriptionContainer">
         <div className="EventCard__title">{title}</div>
-        <div className="EventCard__month">{getMonthData(date)}</div>
+        <div className="EventCard__month">{getMonthString(new Date(date))}</div>
       </div>
     </div>
   );
