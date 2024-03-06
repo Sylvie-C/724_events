@@ -4,6 +4,7 @@ import Select from "../../components/Select";
 import { useData } from "../../contexts/DataContext";
 import Modal from "../Modal";
 import ModalEvent from "../ModalEvent";
+import { extractLetters } from "../../helpers/Date" ; 
 
 import "./style.css";
 
@@ -117,7 +118,7 @@ const EventList = () => {
                     onClick={() => setIsOpened(true)}
                     imageSrc={event.cover}
                     title={event.title}
-                    date={new Date(event.date)}
+                    date={extractLetters(event.periode)}
                     label={event.type}
                   />
                 )}

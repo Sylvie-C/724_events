@@ -11,3 +11,15 @@ export const getMonthString = (date) => {
   const data = date.getMonth() // method Date.getMonth() 
   return MONTHS[data] ; 
 } 
+
+export const extractLetters = (inputString) => {
+  /*
+    Function to extract letters from a string. 
+    Parameters : 1 -> string
+    Return : new string with only letters (lower and upper case)
+  */
+    const regex = /[a-zA-ZÀ-ÖØ-öø-ÿ]+/g;
+    const lettersArray = inputString.match(regex);
+    const extractedLetters = lettersArray ? lettersArray.join('') : '';
+    return extractedLetters;
+}

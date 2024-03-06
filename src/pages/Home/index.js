@@ -12,8 +12,16 @@ import Form from "../../containers/Form";
 import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
+
+// import { extractLetters } from "../../helpers/Date";
+
 const Page = () => {
   const {last} = useData()
+
+
+  console.log ("LAST periode : " , last?.periode) ; 
+
+
   return <>
     <header>
       <Menu />
@@ -119,7 +127,9 @@ const Page = () => {
         <EventCard
           imageSrc={last?.cover}
           title={last?.title}
-          date={new Date(last?.date)}
+          // date={new Date(last?.date)}
+          // date={extractLetters(last?.periode)}
+          date="test pour voir"
           small
           label="boom"
         />
