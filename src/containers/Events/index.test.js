@@ -49,7 +49,7 @@ describe("When Events is created", () => {
   });
   
   describe("and an error occured", () => {
-    it.only("an error message is displayed", async () => {
+    it("an error message is displayed", async () => {
       // ERROR SIMULATION : DATA NOT RECEIVED : 
       api.loadData = jest.fn().mockRejectedValue(); 
       render(
