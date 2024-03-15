@@ -12,24 +12,28 @@ import Form from "../../containers/Form";
 import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
-
-// import { extractLetters } from "../../helpers/Date";
+import { getMonthString } from "../../helpers/Date" ; 
 
 const Page = () => {
-  const {last} = useData()
+  const { data , error } = useData(); 
 
+  const eventsData = data?.events ; 
 
-  console.log ("LAST periode : " , last?.periode) ; 
+  const last = eventsData?.reduce ( (a,b) => (
+    a.date > b.date ? a : b
+  )); 
 
+  const lastMonthString = getMonthString(new Date(last?.date)) ; 
+
+  // const openedStatus = true; 
 
   return <>
-    <header>
-      <Menu />
-    </header>
+    {error && <div>An error occured : data have not been imported.</div>}
+
+    <header> <Menu /> </header>
+
     <main>
-      <section className="SliderContainer">
-        <Slider />
-      </section>
+      <section className="SliderContainer"> <Slider /> </section>
       <section className="ServicesContainer">
         <h2 className="Title">Nos services</h2>
         <p>Nous organisons des événements sur mesure partout dans le monde</p>
@@ -102,6 +106,7 @@ const Page = () => {
       <div className="FormContainer" id="contact">
         <h2 className="Title">Contact</h2>
         <Modal
+          // opened = {openedStatus}
           Content={
             <div className="ModalMessage--success">
               <div>Message envoyé !</div>
@@ -121,15 +126,14 @@ const Page = () => {
         </Modal>
       </div>
     </main>
+    
     <footer className="row">
       <div className="col presta">
         <h3>Notre dernière prestation</h3>
         <EventCard
           imageSrc={last?.cover}
           title={last?.title}
-          // date={new Date(last?.date)}
-          // date={extractLetters(last?.periode)}
-          date="test pour voir"
+          date= {lastMonthString} 
           small
           label="boom"
         />
