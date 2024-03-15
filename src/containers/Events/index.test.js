@@ -51,7 +51,7 @@ describe("When Events is created", () => {
   describe("and an error occured", () => {
     it.only("an error message is displayed", async () => {
       // ERROR SIMULATION : DATA NOT RECEIVED : 
-      // api.loadData = jest.fn().mockRejectedValue(); 
+      api.loadData = jest.fn().mockRejectedValue(); 
       render(
         <DataProvider>
           <Events />
@@ -113,10 +113,3 @@ describe("When Events is created", () => {
   });
 
 });
-
-  // if eventsData.length = 28, 
-
-    // if currentPage is 1, slice eventsData from index 0 to 9 (excluded)
-    // if currentPage is 2, slice eventsData from index 9 to 18 (excluded) 
-    // if currentPage is 3, slice eventsData from index 18 to 27 (excluded)
-    // if currentPage is 4, slice eventsData from index 27 to end of array

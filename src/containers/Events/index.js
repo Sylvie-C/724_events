@@ -111,7 +111,7 @@ const EventList = () => {
           />
           <div id="events" className="ListContainer">
 
-            {eventsData.map((event) => (
+            {eventsData?.map((event) => (
               <Modal key={event.id} Content={<ModalEvent event={event} />}>
                 {({ setIsOpened }) => (
                   <EventCard

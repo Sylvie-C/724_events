@@ -8,12 +8,12 @@ const EventCard = ({
   date,
   title,
   label,
-  small = false,
+  small,
   ...props
 }) => (
     <div
       data-testid="card-testid"
-      className={`EventCard${small ? " EventCard--small" : ""}`}
+      className={`EventCard${small ? "--small" : ""}`}
       {...props}
     >
       <div className="EventCard__imageContainer">
@@ -38,7 +38,7 @@ EventCard.propTypes = {
 
 EventCard.defaultProps = {
   imageAlt: "image",
-  small: false,
+  small: true,
 }
 
 export default EventCard;

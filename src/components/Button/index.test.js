@@ -7,11 +7,13 @@ describe("When a button is created", () => {
     const buttonElement = screen.getByTitle("my-button");
     expect(buttonElement).toBeInTheDocument();
   });
+
   it("the button must display a label", () => {
     render(<Button>label</Button>);
     const buttonElement = screen.getByText(/label/);
     expect(buttonElement).toBeInTheDocument();
   });
+
   describe("and it's clicked", () => {
     it("an event onClick it executed", () => {
       const onClick = jest.fn();
@@ -27,6 +29,7 @@ describe("When a button is created", () => {
       expect(onClick.mock.calls.length).toBeGreaterThan(0);
     });
   });
+  
   describe("and selected type is submit", () => {
     it("an input submit is created", () => {
       render(<Button type={BUTTON_TYPES.SUBMIT}>label</Button>);
