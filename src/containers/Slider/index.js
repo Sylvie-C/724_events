@@ -13,9 +13,11 @@ const Slider = () => {
     new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
   );
 
-const nextCard = () => {
+  const slidesNb = data?.focus.length;
+
+  const nextCard = () => {
     setTimeout(
-      () => setIndex(slideIndex < byDateAsc.length-1 ? slideIndex + 1 : 0),
+      () => setIndex(slideIndex < slidesNb-1 ? slideIndex + 1 : 0),
       5000
     ); 
   };
@@ -32,8 +34,8 @@ const nextCard = () => {
 
   return (
     <div className="SlideCardList">
-      {byDateAsc?.map((event, idx) => (
-        <>
+      { 
+        byDateAsc?.map((event, idx) => (
           <div
             key={event.title}
             className={`SlideCard SlideCard--${
@@ -50,25 +52,25 @@ const nextCard = () => {
               </div>
             </div>
           </div>
+        ))
+      }
 
-          <div className="SlideCard__paginationContainer">
-              <div className="SlideCard__pagination">
-                {
-                  byDateAsc.map ( (elt , index) => (
-                    <input 
-                      key={`radio${byDateAsc.indexOf(elt)}`}
-                      type="radio"
-                      name="radio-button"
+      <div className="SlideCard__paginationContainer">
+          <div className="SlideCard__pagination">
+            {
+              byDateAsc?.map ( (elt , index) => (
+                <input 
+                  key={`radio${byDateAsc.indexOf(elt)}`}
+                  type="radio"
+                  name="radio-button"
 
-                      checked={ index === slideIndex && radioChecked }
-                      onChange= {handleRadio}
-                    />
-                  ))
-                }
-              </div>
+                  checked={ index === slideIndex && radioChecked}
+                  onChange= {handleRadio}
+                />
+              ))
+            }
           </div>
-        </>
-      ))}
+      </div>
     </div>
   );
 };
