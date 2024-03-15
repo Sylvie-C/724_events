@@ -43,6 +43,8 @@
         height: 16px;
         min-width: 0;
         color: $primary;
+
+        pointer-events: none;
       }
     }
 
