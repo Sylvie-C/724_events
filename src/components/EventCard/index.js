@@ -13,7 +13,7 @@ const EventCard = ({
 }) => (
     <div
       data-testid="card-testid"
-      className={`EventCard${small ? "--small" : ""}`}
+      className={`EventCard ${small ? "EventCard--small" : ""}`}
       {...props}
     >
       <div className="EventCard__imageContainer">

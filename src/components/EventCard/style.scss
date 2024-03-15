@@ -1,4 +1,4 @@
-@import "/src/colors.scss";
+@import "src/colors.scss";
 
 .EventCard {
   position: relative;
@@ -9,7 +9,6 @@
   &--small {
     width: 274px;
     height: 190px;
-    position: absolute;
 
     .EventCard__imageContainer {
       height: 126px;
