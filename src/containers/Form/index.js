@@ -12,24 +12,22 @@ const Form = ({ onSuccess, onError }) => {
   const sendContact = useCallback(
     async (evt) => {
       evt.preventDefault();
-
-      
-      setSending(onSuccess);
-
+      setSending(true);
 
       // We try to call mockContactApi
       try {
         await mockContactApi();
-        setSending(false);
       } catch (err) {
-        setSending(false);
         onError(err);
+        setSending(false);
       }
+
+      // If no error thrown, call "onSuccess" function
+      onSuccess();
+      setSending(false); // reset sending status to false after message sending. 
     },
     [onSuccess, onError]
   );
-
-
 
   return (
     <form onSubmit={sendContact}>
