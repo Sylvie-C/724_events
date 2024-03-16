@@ -38,7 +38,7 @@ const data = {
 };
 
 describe("When Events is created", () => {
-  it.only("a list of event card is displayed", async () => {
+  it("an event card is displayed", async () => {
     window.console.error = jest.fn();
     api.loadData = jest.fn().mockReturnValue(data);
     render(
@@ -46,11 +46,11 @@ describe("When Events is created", () => {
         <Events />
       </DataProvider>
     );
+    await screen.findByText("avril");
   });
   
   describe("and an error occured", () => {
     it("an error message is displayed", async () => {
-      // ERROR SIMULATION : DATA NOT RECEIVED : 
       api.loadData = jest.fn().mockRejectedValue(); 
       render(
         <DataProvider>

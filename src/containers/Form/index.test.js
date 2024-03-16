@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import Form from "./index";
 
 describe("When a Form is created", () => {
-  it("input lables are displayed", async () => {
+  it("input fields and labels are displayed", async () => {
     render(<Form />);
     await screen.findByText("Email");
     await screen.findByText("Nom");

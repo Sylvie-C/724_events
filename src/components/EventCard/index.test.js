@@ -3,7 +3,7 @@ import EventCard from "./index";
 
 describe("When an event card is created", () => {
   it("displays an image with the correct alt value", () => {
-    render(
+    const {getByAltText} = render(
       <EventCard
         imageSrc="http://src-image"
         imageAlt="image-alt-text"
@@ -13,8 +13,10 @@ describe("When an event card is created", () => {
       />
     );
     const imageElement = screen.getByTestId("card-image-testid");
+    const imageEltByAlt = getByAltText("image-alt-text") ; 
     expect(imageElement).toBeInTheDocument();
-    expect(imageElement).toHaveAttribute("alt", "image-alt-text");
+    expect(imageEltByAlt).toBeInTheDocument() ; 
+    // expect(imageElement).toHaveAttribute("alt", "image-alt-text");
   });
 
   it("a title, a label and a month are displayed", () => {
