@@ -27,18 +27,29 @@ describe("When Form is created", () => {
 
 });
 
-
 describe("When a page is created", () => {
   it("a list of events is displayed", () => {
-    // to implement
+    render (<Home />)
+    const eventsList = screen.getByTestId("eventsList") ; 
+    expect(eventsList).toBeInTheDocument() ; 
   })
   it("a list a people is displayed", () => {
-    // to implement
+    render (<Home />)
+    const peopleCard = screen.getAllByTestId("card-image-testid"); 
+    expect(peopleCard).toBeTruthy() ; // array of people cards exists
+    expect(peopleCard.length).not.toBeNull() ; // array of people cards not empty
   })
   it("a footer is displayed", () => {
-    // to implement
+    render (<Home />)
+    const footer = screen.getByTestId("footerTestid") ; 
+    expect (footer).toBeInTheDocument() ; 
   })
   it("an event card, with the last event, is displayed", () => {
-    // to implement
+    render (<Home />) 
+    const footer = screen.getByTestId("footerTestid") ; 
+
+    expect(footer).toContainHTML("img") ; // the footer contains an <img> (knowing icons are <svg>)
+
+    // test latest date to be implemented
   })
 });

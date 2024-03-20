@@ -28,7 +28,6 @@ const Slider = () => {
 
   useEffect(() => {
     nextCard();
-    // setIndex(0);  
   });
 
 

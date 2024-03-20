@@ -23,9 +23,7 @@ const Page = () => {
     a.date > b.date ? a : b
   )); 
 
-  const lastMonthString = getMonthString(new Date(last?.date)) ; 
-
-  // const openedStatus = true; 
+  const lastMonthString = getMonthString(new Date(last?.date)) ;  
 
   return <>
     {error && <div>An error occured : data have not been imported.</div>}
@@ -106,7 +104,6 @@ const Page = () => {
       <div className="FormContainer" id="contact">
         <h2 className="Title">Contact</h2>
         <Modal
-          // opened = {openedStatus}
           Content={
             <div className="ModalMessage--success">
               <div>Message envoyé !</div>
@@ -127,7 +124,7 @@ const Page = () => {
       </div>
     </main>
     
-    <footer className="row">
+    <footer className="row" data-testid="footerTestid">
       <div className="col presta">
         <h3>Notre dernière prestation</h3>
         <EventCard
