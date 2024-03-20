@@ -1,4 +1,4 @@
-@import "src/colors.scss";
+@import "/src/colors.scss";
 
 main {
   display: flex;
@@ -14,7 +14,7 @@ main {
   position: relative;
   width: 100%;
 
-  >* {
+  * {
     z-index: 1;
   }
 

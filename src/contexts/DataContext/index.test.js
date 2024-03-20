@@ -37,8 +37,8 @@ describe("When a data context is created", () => {
   it("api.loadData", () => {
     window.console.error = jest.fn();
     global.fetch = jest.fn().mockResolvedValue(() =>
-      Promise.resolve({
-        json: () => Promise.resolve({ rates: { CAD: 1.42 } }),
+      Promise.resolved({
+        json: () => Promise.resolved({ rates: { CAD: 1.42 } }),
       })
     );
     const Component = () => {

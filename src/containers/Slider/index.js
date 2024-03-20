@@ -10,7 +10,7 @@ const Slider = () => {
   const [radioChecked, setChecked] = useState(true) // radio buttons checked status
 
   const byDateAsc = data?.focus.sort((evtA, evtB) =>
-    new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
+    new Date(evtA.date) > new Date(evtB.date) ? -1 : 1
   );
 
   const slidesNb = data?.focus.length;
@@ -28,7 +28,6 @@ const Slider = () => {
 
   useEffect(() => {
     nextCard();
-    // setIndex(0);  
   });
 
 

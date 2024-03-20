@@ -8,7 +8,7 @@ export const getMonthString = (date) => {
     Parameters : 1 -> date (Date type JS object)
     Return : corresponding month (string type).
   */
-  const data = date.getMonth() // method Date.getMonth() 
+  const data = date.getMonth() // method Date.getMonth() returns month index (0 for january)
   return MONTHS[data] ; 
 } 
 
@@ -16,7 +16,7 @@ export const extractLetters = (inputString) => {
   /*
     Function to extract letters from a string. 
     Parameters : 1 -> string
-    Return : new string with only letters (lower and upper case)
+    Return : new string with only letters including accents (lower and upper case)
   */
     const regex = /[a-zA-ZÀ-ÖØ-öø-ÿ]+/g;
     const lettersArray = inputString.match(regex);
