@@ -50,11 +50,18 @@ const EventList = () => {
     Parameters : 2 -> array to filter , element.type in array we want extracted
     Return : array of filtered events types.
   */
-    const arrayOut = arrayIn.filter ( elt => elt.type === typeFilter )
+    let arrayOut ; 
+    if (typeFilter === "Toutes") {
+      arrayOut = arrayIn ; 
+    }else {
+      arrayOut = arrayIn.filter ( elt => elt.type === typeFilter ) ; 
+    }
+    
     return arrayOut; 
   } 
 
   if (type) {  // if a type is selected, 
+
     eventsData = filterFn ( eventsData , type ) ;   // return Array of filtered events
     eventsNb = eventsData.length ; 
     pageNumber = pageNb(eventsNb , PER_PAGE) ;   // update number of pages of events cards
@@ -106,9 +113,10 @@ const EventList = () => {
         <>
           <h3 className="SelectTitle">Catégories</h3>
           <Select
-            selection={Array.from(typeList)}
-            onChange={(value) => (value ? changeType(value) : changeType(null))}
+            selection={ Array.from(typeList) }
+            onChange={ (value) => (value ? changeType(value) : changeType(null)) }
           />
+
           <div id="events" className="ListContainer" data-testid="eventsList">
 
             {eventsData?.map((event) => (

@@ -23,7 +23,7 @@ const Page = () => {
     a.date > b.date ? a : b
   )); 
 
-  const lastMonthString = getMonthString(new Date(last?.date)) ;  
+  const lastMonthString = getMonthString(new Date(last?.date)) ;
 
   return <>
     {error && <div>An error occured : data have not been imported.</div>}
@@ -127,13 +127,16 @@ const Page = () => {
     <footer className="row" data-testid="footerTestid">
       <div className="col presta">
         <h3>Notre dernière prestation</h3>
-        <EventCard
-          imageSrc={last?.cover}
-          title={last?.title}
-          date= {lastMonthString} 
-          small
-          label="boom"
-        />
+        { last ? 
+            <EventCard
+            imageSrc={last?.cover}
+            title={last?.title}
+            date= {lastMonthString} 
+            small
+            label="boom"
+          />
+          : null }
+
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>
